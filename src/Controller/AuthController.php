@@ -18,8 +18,8 @@ class AuthController extends AbstractController
         if ($request->isMethod('POST')) {
             $email = $request->request->get('email');
             $password = $request->request->get('password');
-            $firstname = $request->request->get('firstname');
-            $lastname = $request->request->get('lastname');
+            $firstname = $request->request->get('firstname') ?? 'Utilisateur';
+            $lastname = $request->request->get('lastname') ?? '';
 
             if (!$email || !$password) {
                 $this->addFlash('error', 'Email et mot de passe requis');
