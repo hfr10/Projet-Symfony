@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Éditer mon profil - Footshop{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1>Éditer mon profil</h1>
+
+    <form method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" value="{{ user.email }}" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Prénom</label>
+            <input type="text" name="firstname" id="firstname" class="form-control" value="{{ user.firstname|default('') }}">
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Nom</label>
+            <input type="text" name="lastname" id="lastname" class="form-control" value="{{ user.lastname|default('') }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+        <a href="{{ path('app_profile') }}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+{% endblock %}

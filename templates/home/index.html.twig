@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Accueil - Footshop{% endblock %}
+
+{% block body %}
+<div class="hero text-center">
+    <div class="container">
+        <h1 class="display-4">Bienvenue chez Footshop</h1>
+        <p class="lead">Découvrez notre collection exclusive de chaussures premium</p>
+        <a href="{{ path('app_products_list') }}" class="btn btn-light btn-lg">Voir nos produits</a>
+    </div>
+</div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-5">Nos catégories</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">👟 Chaussures de sport</h5>
+                    <p class="card-text">Les meilleures marques de sport</p>
+                    <a href="#" class="btn btn-primary">Voir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">👔 Chaussures habillées</h5>
+                    <p class="card-text">Pour vos occasions spéciales</p>
+                    <a href="#" class="btn btn-primary">Voir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">🏜️ Chaussures casual</h5>
+                    <p class="card-text">Confortables pour tous les jours</p>
+                    <a href="#" class="btn btn-primary">Voir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

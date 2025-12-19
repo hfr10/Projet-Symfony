@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ajouter un produit - Footshop{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1>Ajouter un produit</h1>
+    <form method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Prix</label>
+            <input type="number" name="price" id="price" class="form-control" step="0.01" required>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image (URL)</label>
+            <input type="text" name="image" id="image" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" name="stock" id="stock" class="form-control" value="0">
+        </div>
+        <button type="submit" class="btn btn-primary">Créer</button>
+        <a href="{{ path('app_products_list') }}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+{% endblock %}

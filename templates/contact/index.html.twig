@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Contact - Footshop{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1>Nous contacter</h1>
+    <p>Avez-vous une question ? Remplissez le formulaire ci-dessous.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nom</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Sujet</label>
+                    <input type="text" name="subject" id="subject" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea name="message" id="message" class="form-control" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Coordonnées</h3>
+            <p><strong>Adresse :</strong> 123 Avenue de la Chaussure, 75000 Paris</p>
+            <p><strong>Téléphone :</strong> 01 23 45 67 89</p>
+            <p><strong>Email :</strong> contact@footshop.fr</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

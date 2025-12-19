@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Produits - Footshop{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1>Nos produits</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_product_create') }}" class="btn btn-success mb-3">+ Ajouter un produit</a>
+    {% endif %}
+
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    {% if product.image %}
+                        <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+                    {% else %}
+                        <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                            <span>Pas d'image</span>
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description|slice(0, 100) }}...</p>
+                        <p class="text-primary fw-bold">{{ product.price }}€</p>
+                        <a href="{{ path('app_product_show', {id: product.id}) }}" class="btn btn-primary">Voir</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('app_product_edit', {id: product.id}) }}" class="btn btn-warning">Éditer</a>
+                            <form method="post" action="{{ path('app_product_delete', {id: product.id}) }}" style="display:inline;">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Confirmer ?')">Supprimer</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Mon profil - Footshop{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1>Mon profil</h1>
+    
+    <div class="card mt-4">
+        <div class="card-body">
+            <p><strong>Email :</strong> {{ user.email }}</p>
+            <p><strong>Prénom :</strong> {{ user.firstname|default('Non renseigné') }}</p>
+            <p><strong>Nom :</strong> {{ user.lastname|default('Non renseigné') }}</p>
+            <p><strong>Membre depuis :</strong> {{ user.createdAt|date('d/m/Y') }}</p>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="{{ path('app_profile_edit') }}" class="btn btn-warning">Modifier</a>
+        <form method="post" action="{{ path('app_profile_delete') }}" style="display:inline;">
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr ?')">Supprimer le compte</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
